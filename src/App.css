@@ -1,38 +1,425 @@
-.App {
-  text-align: center;
+body, html{
+  font-family: "Montserrat",helvetica,arial,sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+  background-color: black;
+}
+.home-title{
+  color:#ecedff;
+  font-size: 25px;
+}
+.nav-item{
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+}
+.nav-item:hover{
+  color: white;
+}
+.banner{
+  color: white;
+  height: 800px;
+  display: flex;
+  align-items: center;
+}
+.banner::before{
+  position: absolute;
+  left:0;
+  width: 80%;
+  height: 800px;
+  content: '';
+  background: linear-gradient(to right, black, transparent);
+}
+.banner-info{
+  width:40%;
+  margin-left: 50px;
+  z-index: 1;
+}
+.loading-spinner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+.card{
+  width: 200x;
+  height: 200px;
+  border: none;
+}
+.overlay{
+  opacity: 0;
+  background: rgba(43, 41, 41, 0.9);
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0 10px;
+}
+.overlay h1{
+  font-size: 25px;
+  font-weight: 400;
+}
+.card:hover .overlay{
+  opacity: 1;
+}
+.card-info{
+  list-style: none;
+  width: 100%;
+  display: flex;
+  padding: 0;
+}
+.card-info li{
+  margin-right: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.breadcrumb-area{
+  width:100%;
+  height: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.breadcrumb-area h1{
+  font-size: 80px;
+}
+.breadcrumb-info{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 60px;
+  background-color: white;
+  color: black
+}
+.breadcrumb-home{
+  border-right: 3px solid #abadc5;
+  padding-right: 10px;
+  margin-right: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  color: black;
+}
+.breadcrumb-home:hover{
+  text-decoration: underline;
+  color: black;
+}
+.breadcrumb-title{
+  color: #abadc5;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Montserrat",helvetica,arial,sans-serif;
+}
+.singleMovie-poster{
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10px;
+}
+.single-poster-area{
+  display: flex;
+  justify-content: flex-start;
 }
 
-.App-link {
-  color: #61dafb;
+.movie-detail-info{
+  margin-top: 1rem;
+  list-style: none;
+  display: flex;
+  padding: 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid white;
+}
+.movie-detail-info li{
+  margin-right: 25px;
+  font-size: 20px;
+}
+.detail-movie-genre {
+  margin-right: 1rem;
+  margin-bottom: 2rem;
+  padding: 10px 20px;
+  font-size: 15px;
+  border-radius: 15px;
+  color: #fff;
+  font-weight: 400;
+}
+.detail-movie-title{
+  font-size: 50px;
+  text-transform: uppercase;
+}
+.detail-movie-tagline{
+  font-size: 25px;
+}
+.detail-movie-adult{
+  color: #dc143c;
+  font-family: fantasy!important;
+  font-style: italic;
+}
+.detail-movie-overview{
+  font-weight: 400;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid white;
+}
+.detail-movie-additional-info{
+  list-style: none;
+  padding: 3rem 0;
+  border-bottom: 1px solid white;
+}
+.detail-movie-additional-info li{
+  font-size: 15px;
+  border-radius: 15px;  
+  margin-bottom: 10px;
+}
+.badge{
+  padding: 5px 20px;
+  font-size: 14px;
+  border-radius: 15px;
+  color: #fff;
+  font-weight: 400;
+}
+.open-trailer{
+  cursor: pointer;
+  color: #dc3545;
+  font-size: 25px;
+}
+.close-trailer{
+  display: flex;
+  justify-content: flex-start;
+  background: black;
+  border-radius: 0;
+  border: none;
+  color: #dc3545;
+  font-weight: 800;
+  font-size: 20px;
+}
+.close-trailer:hover{
+  background-color: black;
+}
+.trailer-area{
+  position: fixed !important;
+  max-width: 100vw;
+  width: 100%;
+  height: 100vh;
+}
+.trailer-box{
+  max-width: 100vw;
+  width: 1400px;
+  height: 600px;
+}
+.trailer-box::before{
+  background-color: #abadc5;
+  opacity: 0.5;
+}
+.trailer-icon{
+  font-size: 25px;
+}
+.heart-button{
+  background-color: #dc3545;
+  border-color: #dc3545;
+  padding: 10px;
+  border-radius: 50%;
+}
+.heart-icon{
+  font-size: 25px;
+}
+.heart-button:hover{
+  background-color: #abadc5;
+  border-color: #abadc5;
+}
+.detail-bottom-Btn{
+  width: 200px;
+  height: 60px;
+  font-size: 20px;
+  font-weight: 600;
+  margin-right: 30px;
+  border: 2px solid #ecedff;
+  color: #747691;
+}
+.detail-bottom-Btn.active{
+  background: #fe4536;
+  border-color: #fe4536;
+  color: #fff;
+}
+.detail-bottom-Btn:active{
+  border-color: none !important;
+  background: none !important;
+  color: #fff !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.review-box{
+  margin-top: 20px;
+  list-style: none;
+  padding: 30px;
+  border: 5px solid white;
+}
+.review-box li{
+  border-top: 1px solid white;
+  padding: 20px 0;
+}
+.review-box li:first-child{
+  border: none;
+  padding-top:0;
+}
+.each-review div:first-child{
+  font-size: 20px;
+}
+
+#relatedMovieArea{
+  display: none;
+}
+
+.related-box{
+  margin-top: 20px;
+}
+.related-card{
+  width: 25%;
+  margin-bottom: 20px;
+}
+
+.movies_option{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border: 1px solid white;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  height: 30px;
+}
+
+.movies_card_area{
+  margin-bottom: 30px;
+}
+.movieCard{
+  position: relative;
+  display: block;
+  height: 100%;
+  max-height: 800px;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: all .4s;
+  margin-bottom: 30px;
+  background-size: cover;
+  cursor: pointer;
+}
+.movieCard:hover{
+  transform: scale(1.05);
+  z-index:3;
+}
+
+.info_section{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-blend-mode: multiply;
+  z-index: 2;
+  border-radius: 10px;
+  background: linear-gradient(90deg,#0d0d0c 30%,transparent);
+}
+.movieCard .blur_back {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width: 80%;
+  height: 100%;
+  right: 0;
+  border-radius: 11px;
+  background-size: cover;
+}
+/* .movieCard .blur_back::before{
+  background: linear-gradient(to right, black, transparent);
+} */
+.bright_back{
+  background: url(https://occ-0-2433-448.1.nflxso.net/art/cd5c9/3e192edf2027c536e25bb5d3b6ac93ced77cd5c9.jpg);
+}
+#bright{
+  box-shadow:  0 0 150px -45px rgba(255,51,0,.5)
+}
+.movie_desc{
+  width: 60%;
+  padding-left: 25px;
+  color: #cfd6e1;
+  margin-bottom: 1rem;
+}
+.locandina {
+  vertical-align: middle;
+  height: 80px;
+  position: relative;
+  float: left;
+  box-shadow: 0 0 20px -10px rgba(0,0,0,.5);
+  margin-right: 20px;
+}
+.type{
+  color: #cee4fd;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  font-weight: 700;
+  font-family: sans-serif;
+  list-style: none;
+}
+.movie_header{
+  position: relative;
+  padding-top: 25px;
+  padding-left: 25px;
+  width: 60%;
+}
+.movie_header h1{
+  color: #fff;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-size: 15px!important;
+  text-transform: uppercase;
+  font-size: 25px!important;
+}
+.movie_header h4 {
+  color: #9ac7fa;
+  font-weight: 400;
+  font-size: 13px;
+  margin-bottom: 30px;
+}
+.movie_social{
+  height: 10%;
+  margin: 0;
+  padding-left: 15px;
+  padding-bottom: 20px;
+  padding-top: 15px;
+  font-family: "Lato",sans-serif;
+  font-weight: lighter;
+}
+.movie_social ul{
+  list-style: none;
+  padding: 0;
+}
+.movie_social li{
+  display: inline-block;
+  /* color: hsla(0,0%,100%,.4); */
+  transition: color .3s;
+  transition-delay: .15s;
+  margin: 0 10px;
+}
+li span {
+  color: #fff;
+    margin-left: 7px;
+    font-size: 20px!important;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+.eighteen{
+  color: #dc143c;
+  font-family: fantasy!important;
+}
+.movies_badge{
+  padding: 5px 15px;
+  font-size: 12px!important;
+  border-radius: 15px;
+  color: #fff;
+  font-weight: 400;
 }
